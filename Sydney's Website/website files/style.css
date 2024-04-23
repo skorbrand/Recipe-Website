@@ -31,6 +31,6 @@ header {
     width: 100px; /* Width of the image */
     height: 50px; /* Height of the image */
     background-size: cover; /* Cover the entire div with the image */
-    background-image: url('/img/R.png');
+    background-image: url('../website files/img/R.png');
     z-index: 1;
 }
