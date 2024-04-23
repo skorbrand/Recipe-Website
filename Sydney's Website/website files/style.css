@@ -1,46 +1,36 @@
-body {
+/* Reset default margin and padding */
+body, header, div {
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
+/* Style for the header */
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Change the color as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
 }
 
-.image-container {
-    position: relative;
-    text-align: center;
+/* Style for the home and recipe links */
+#headerHome, #headerRecipe {
+    color: white; /* Text color */
+    font-size: 18px; /* Font size */
+    cursor: pointer; /* Show pointer on hover */
+    transition: color 0.3s; /* Smooth color transition on hover */
 }
 
-.image {
-    width: 100%;
-    height: auto;
+/* Change text color on hover */
+#headerHome:hover, #headerRecipe:hover {
+    color: lightgrey; /* Text color on hover */
 }
 
-.text-box {
-    position: absolute;
-    margin: 14px;
-    top: 50%;
-    left: 49.2%;
-    width: 31.5%;
-    height: 12%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(158, 48, 48, 0.5);
-    color: #fff;
-}
-
-.user-input{
-    position: absolute;
-    margin: 14px;
-    top: 28%;
-    left: 47.5%;
-    width: 99%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.336);
-    color: #fff;
+/* Style for the header image */
+#headerImg {
+    width: 100px; /* Width of the image */
+    height: 50px; /* Height of the image */
+    background-size: cover; /* Cover the entire div with the image */
+    background-image: url('/img/R.png');
+    z-index: 1;
 }
