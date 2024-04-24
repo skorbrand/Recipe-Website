@@ -6,8 +6,8 @@ body, header, div {
 
 /* Style for the header */
 header {
-    display: flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content:center;
     align-items: center;
     background-color: #333; /* Change the color as needed */
     padding: 10px 20px; /* Adjust padding as needed */
@@ -19,11 +19,15 @@ header {
     font-size: 18px; /* Font size */
     cursor: pointer; /* Show pointer on hover */
     transition: color 0.3s; /* Smooth color transition on hover */
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Change text color on hover */
 #headerHome:hover, #headerRecipe:hover {
-    color: lightgrey; /* Text color on hover */
+    background-color: #505050; /* Text color on hover */
 }
 
 /* Style for the header image */
@@ -33,4 +37,38 @@ header {
     background-size: cover; /* Cover the entire div with the image */
     background-image: url('../website files/img/R.png');
     z-index: 1;
+}
+
+#space {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.rectangle {
+position: relative; /* Add this line */
+border: 2px solid #333;
+padding: 10px;
+width: 250px;
+height: 400px;
+background-size: cover;
+background-position: center;
+margin: 10px;
+}
+
+.name {
+position: absolute;
+bottom: -20px; /* Adjust as needed */
+left: 50%;
+transform: translateX(-50%);
+background-color: #333;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
 }
