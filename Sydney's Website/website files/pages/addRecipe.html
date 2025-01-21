@@ -5,27 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag-row {
+            display: inline-flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Add a New Recipe</h1>
     </header>
     <main>
-        <form action="/submit-recipe" method="post">
+        <form action="/submit-recipe" method="post" enctype="multipart/form-data">
+            <!-- Recipe Name -->
             <label for="recipe-name">Recipe Name:</label>
             <input type="text" id="recipe-name" name="recipe-name" required>
-            
-            <label for="ingredients">Ingredients:</label>
-            <textarea id="ingredients" name="ingredients" rows="5" required></textarea>
-            
-            <label for="instructions">Instructions:</label>
-            <textarea id="instructions" name="instructions" rows="10" required></textarea>
-            
+
+            <!-- Description -->
+            <h2>Description</h2>
+            <textarea id="description" name="description" rows="3" required></textarea>
+
+            <!-- Ingredients -->
+            <h2>Ingredients</h2>
+            <div id="ingredients-container">
+                <div class="ingredient-row">
+                    <input type="text" name="ingredients[]" placeholder="Ingredient" required>
+                    <select name="measurements[]">
+                        <option value="">Select Measurement</option>
+                        <option value="cup">Cup</option>
+                        <option value="tbsp">Tablespoon</option>
+                        <option value="tsp">Teaspoon</option>
+                        <option value="g">Grams</option>
+                        <option value="ml">Milliliters</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+            </div>
+            <button type="button" onclick="addIngredient()">+</button>
+
+            <!-- Instructions -->
+            <h2>Instructions</h2>
+            <div id="instructions-container">
+                <div class="instruction-row">
+                    <textarea name="instructions[]" placeholder="Instruction" rows="2" required></textarea>
+                </div>
+            </div>
+            <button type="button" onclick="addInstruction()">+</button>
+
+            <!-- Tags -->
+            <h2>Tags</h2>
+            <div id="tags-container">
+                <div class="tag-row">
+                    <input type="text" name="tags[]" placeholder="Tag">
+                </div>
+            </div>
+            <button type="button" onclick="addTag()">+</button>
+
+            <!-- Photo -->
+            <h2>Photo</h2>
+            <input type="file" id="photo" name="photo" accept="image/*">
+
+            <!-- Submit Button -->
             <button type="submit">Submit Recipe</button>
         </form>
     </main>
     <footer>
         <p>&copy; 2023 Sydney's Recipe Website</p>
     </footer>
+
+    <script>
+        function addIngredient() {
+            const container = document.getElementById('ingredients-container');
+            const row = document.createElement('div');
+            row.className = 'ingredient-row';
+            row.innerHTML = `
+                <input type="text" name="ingredients[]" placeholder="Ingredient" required>
+                <select name="measurements[]">
+                    <option value="">Select Measurement</option>
+                    <option value="cup">Cup</option>
+                    <option value="tbsp">Tablespoon</option>
+                    <option value="tsp">Teaspoon</option>
+                    <option value="g">Grams</option>
+                    <option value="ml">Milliliters</option>
+                </select>
+            `;
+            container.appendChild(row);
+        }
+
+        function addInstruction() {
+            const container = document.getElementById('instructions-container');
+            const row = document.createElement('div');
+            row.className = 'instruction-row';
+            row.innerHTML = `
+                <textarea name="instructions[]" placeholder="Instruction" rows="2" required></textarea>
+            `;
+            container.appendChild(row);
+        }
+
+        function addTag() {
+            const container = document.getElementById('tags-container');
+            const rows = container.querySelectorAll('.tag-row');
+            const row = document.createElement('div');
+            row.className = 'tag-row';
+            row.innerHTML = `
+                <input type="text" name="tags[]" placeholder="Tag">
+            `;
+            container.appendChild(row);
+
+            // Adjust layout after every 3 tags
+            if (rows.length % 3 === 2) {
+                const breakLine = document.createElement('br');
+                container.appendChild(breakLine);
+            }
+        }
+    </script>
 </body>
 </html>
