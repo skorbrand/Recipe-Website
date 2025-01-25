@@ -2,8 +2,100 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Recipe Homepage</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            height: 80px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header #headerImg {
+            background-image: url('../img/header-image.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+        }
+
+        header a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .rectangle {
+            width: 150px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #ccc;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+
+        .rectangle .name {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 16px;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #c41414;
+            border-radius: 4px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -11,23 +103,35 @@
         <div id="space"></div>
         <a id="headerHome" href="index.html">HOME</a>
         <div id="space"></div>
-        <a id="headerRecipe" href="recipe.html">RECIPE</a>
+        <a id="headerRecipe" href="recipe.html">RECIPES</a>
     </header>
 
     <div class="container">
-        <div class="rectangle" style="background-image: url('../img/Untitled.png');">
-            <div class="name">Name Here</div>
+        <div class="rectangle" style="background-image: url('../img/breakfast.png');">
+            <div class="name">Breakfast</div>
         </div>
-        <div class="rectangle" style="background-image: url('../img/Untitled.png');">
-            <div class="name">Name11 Here</div>
+        <div class="rectangle" style="background-image: url('../img/lunch.png');">
+            <div class="name">Lunch</div>
         </div>
-        <div class="rectangle" style="background-image: url('../img/Untitled.png');">
-            <div class="name">Name22 Here</div>
+        <div class="rectangle" style="background-image: url('../img/dinner.png');">
+            <div class="name">Dinner</div>
         </div>
-        <div class="rectangle" style="background-image: url('../img/Untitled.png');">
-            <div class="name">Name23 Here</div>
+        <div class="rectangle" style="background-image: url('../img/dessert.png');">
+            <div class="name">Dessert</div>
         </div>
     </div>
-    
+
+    <div class="search-bar">
+        <input type="text" placeholder="Find recipes...">
+    </div>
+
+    <div class="gallery">
+        <img src="../img/gallery1.png" alt="Recipe 1">
+        <img src="../img/gallery2.png" alt="Recipe 2">
+        <img src="../img/gallery3.png" alt="Recipe 3">
+        <img src="../img/gallery4.png" alt="Recipe 4">
+        <img src="../img/gallery5.png" alt="Recipe 5">
+        <img src="../img/gallery6.png" alt="Recipe 6">
+    </div>
 </body>
 </html>
